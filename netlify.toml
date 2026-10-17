@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8, Node.js 20.19+ veya 22.12+ gerektirir.
+  NODE_VERSION = "22"
+
+# Tek sayfa uygulaması (SPA): bilinmeyen tüm yollar index.html'e yönlendirilir.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

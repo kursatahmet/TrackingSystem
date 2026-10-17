@@ -1,0 +1,92 @@
+{
+  "app": "izleoku",
+  "version": 1,
+  "exportedAt": "2026-10-17T20:00:00.000Z",
+  "items": [
+    {
+      "id": "ccb79a78-238c-41b3-84c7-67d514cb8d3e",
+      "title": "Yıldızlararası",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Christopher Nolan",
+      "year": 2014,
+      "rating": 5,
+      "note": "Müzikleri muhteşem. Tekrar izlenir.",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "92cc8c0e-698a-4e58-9353-f8a6d9f427ee",
+      "title": "Başlangıç",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Christopher Nolan",
+      "year": 2010,
+      "rating": 4,
+      "createdAt": "2026-08-21T04:23:04.615Z",
+      "updatedAt": "2026-08-21T04:23:04.615Z"
+    },
+    {
+      "id": "f3e7f682-9bc2-409e-9650-e45e16f114cd",
+      "title": "Kış Uykusu",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Nuri Bilge Ceylan",
+      "year": 2014,
+      "rating": 5,
+      "note": "Cannes Altın Palmiye ödüllü.",
+      "createdAt": "2026-08-23T12:46:09.230Z",
+      "updatedAt": "2026-08-23T12:46:09.230Z"
+    },
+    {
+      "id": "ccb79a78-238c-41b3-84c7-67d514cb8d3e",
+      "title": "Yıldızlararası",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Christopher Nolan",
+      "year": 2014,
+      "rating": 5,
+      "note": "Müzikleri muhteşem. Tekrar izlenir.",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "1d4856c4-197a-4d76-a628-dd358834d1d0",
+      "title": "",
+      "type": "movie",
+      "status": "planned",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "d1e0b607-023d-48cc-9515-b8d709fc4b72",
+      "title": "Bilinmeyen Tür",
+      "type": "podcast",
+      "status": "planned",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "77a82f56-9cae-450a-895c-b654fb0b7e54",
+      "title": "Geçersiz Durum",
+      "type": "book",
+      "status": "dropped",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "815eee64-3f53-4e89-b2f1-80873997c993",
+      "title": "Puan 7",
+      "type": "series",
+      "status": "completed",
+      "rating": 7,
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "title": "id ve tarih yok",
+      "type": "movie",
+      "status": "planned"
+    }
+  ]
+}

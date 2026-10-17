@@ -1,0 +1,285 @@
+{
+  "app": "izleoku",
+  "version": 1,
+  "exportedAt": "2026-10-17T20:00:00.000Z",
+  "items": [
+    {
+      "id": "ccb79a78-238c-41b3-84c7-67d514cb8d3e",
+      "title": "Yıldızlararası",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Christopher Nolan",
+      "year": 2014,
+      "rating": 5,
+      "note": "Müzikleri muhteşem. Tekrar izlenir.",
+      "createdAt": "2026-08-18T20:00:00.000Z",
+      "updatedAt": "2026-08-20T20:00:00.000Z"
+    },
+    {
+      "id": "92cc8c0e-698a-4e58-9353-f8a6d9f427ee",
+      "title": "Başlangıç",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Christopher Nolan",
+      "year": 2010,
+      "rating": 4,
+      "createdAt": "2026-08-21T04:23:04.615Z",
+      "updatedAt": "2026-08-21T04:23:04.615Z"
+    },
+    {
+      "id": "f3e7f682-9bc2-409e-9650-e45e16f114cd",
+      "title": "Kış Uykusu",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Nuri Bilge Ceylan",
+      "year": 2014,
+      "rating": 5,
+      "note": "Cannes Altın Palmiye ödüllü.",
+      "createdAt": "2026-08-23T12:46:09.230Z",
+      "updatedAt": "2026-08-23T12:46:09.230Z"
+    },
+    {
+      "id": "7891da72-9476-46a8-a11a-5e21d3e42384",
+      "title": "Babam ve Oğlum",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Çağan Irmak",
+      "year": 2005,
+      "rating": 5,
+      "createdAt": "2026-08-25T18:09:13.846Z",
+      "updatedAt": "2026-08-25T18:09:13.846Z"
+    },
+    {
+      "id": "3f8c095d-2f32-4608-bad7-91c1ff379a8c",
+      "title": "Parazit",
+      "type": "movie",
+      "status": "in_progress",
+      "creator": "Bong Joon-ho",
+      "year": 2019,
+      "note": "Yarısında kaldım, 1:05:00.",
+      "createdAt": "2026-08-28T02:32:18.461Z",
+      "updatedAt": "2026-08-30T02:32:18.461Z"
+    },
+    {
+      "id": "272fb2c0-755b-45fd-ae09-a688df9d9bae",
+      "title": "Dune: Çöl Gezegeni",
+      "type": "movie",
+      "status": "planned",
+      "creator": "Denis Villeneuve",
+      "year": 2021,
+      "createdAt": "2026-08-30T10:55:23.076Z",
+      "updatedAt": "2026-08-30T10:55:23.076Z"
+    },
+    {
+      "id": "7d52ef48-68bb-40b2-803d-df226eb004c3",
+      "title": "Oppenheimer",
+      "type": "movie",
+      "status": "planned",
+      "creator": "Christopher Nolan",
+      "year": 2023,
+      "createdAt": "2026-09-01T16:18:27.692Z",
+      "updatedAt": "2026-09-01T16:18:27.692Z"
+    },
+    {
+      "id": "f87ec721-d839-4543-9627-f1fa5786e670",
+      "title": "Amélie",
+      "type": "movie",
+      "status": "planned",
+      "createdAt": "2026-09-04T00:41:32.307Z",
+      "updatedAt": "2026-09-04T00:41:32.307Z"
+    },
+    {
+      "id": "e30c73b2-21e7-468e-a58f-169db8120606",
+      "title": "Ruhların Kaçışı",
+      "type": "movie",
+      "status": "completed",
+      "creator": "Hayao Miyazaki",
+      "year": 2001,
+      "rating": 3,
+      "createdAt": "2026-09-06T09:04:36.923Z",
+      "updatedAt": "2026-09-08T09:04:36.923Z"
+    },
+    {
+      "id": "eacb427d-066d-45fd-9c23-cd984c7c2343",
+      "title": "Breaking Bad",
+      "type": "series",
+      "status": "completed",
+      "creator": "Vince Gilligan",
+      "year": 2008,
+      "rating": 5,
+      "note": "Tüm zamanların en iyisi olabilir.",
+      "createdAt": "2026-09-08T14:27:41.538Z",
+      "updatedAt": "2026-09-08T14:27:41.538Z"
+    },
+    {
+      "id": "a01c2010-7ac9-4035-96b4-4e2df46caf48",
+      "title": "Better Call Saul",
+      "type": "series",
+      "status": "in_progress",
+      "creator": "Vince Gilligan",
+      "year": 2015,
+      "rating": 4,
+      "note": "3. sezon 5. bölüm.",
+      "createdAt": "2026-09-10T22:50:46.153Z",
+      "updatedAt": "2026-09-10T22:50:46.153Z"
+    },
+    {
+      "id": "7525c5e1-2985-4ca8-89da-604b4e9d9301",
+      "title": "Dark",
+      "type": "series",
+      "status": "completed",
+      "creator": "Baran bo Odar",
+      "year": 2017,
+      "rating": 4,
+      "createdAt": "2026-09-13T07:13:50.769Z",
+      "updatedAt": "2026-09-13T07:13:50.769Z"
+    },
+    {
+      "id": "415740b4-b412-41d1-b062-e4ed4c552043",
+      "title": "Bir Başkadır",
+      "type": "series",
+      "status": "completed",
+      "creator": "Berkun Oya",
+      "year": 2020,
+      "rating": 5,
+      "createdAt": "2026-09-15T12:36:55.384Z",
+      "updatedAt": "2026-09-17T12:36:55.384Z"
+    },
+    {
+      "id": "fdbecc1f-04e7-41a8-b950-61eb80ae0fba",
+      "title": "The Office",
+      "type": "series",
+      "status": "in_progress",
+      "creator": "Greg Daniels",
+      "year": 2005,
+      "note": "Arka planda açık kalıyor.",
+      "createdAt": "2026-09-17T21:00:00.000Z",
+      "updatedAt": "2026-09-17T21:00:00.000Z"
+    },
+    {
+      "id": "0685240f-b4a6-48ec-89f9-bfeaa314d694",
+      "title": "Shōgun",
+      "type": "series",
+      "status": "planned",
+      "year": 2024,
+      "createdAt": "2026-09-20T05:23:04.615Z",
+      "updatedAt": "2026-09-20T05:23:04.615Z"
+    },
+    {
+      "id": "7268923f-9725-433f-86d5-28bb22a853c2",
+      "title": "Severance",
+      "type": "series",
+      "status": "planned",
+      "creator": "Dan Erickson",
+      "year": 2022,
+      "note": "Arkadaşım önerdi.",
+      "createdAt": "2026-09-22T10:46:09.230Z",
+      "updatedAt": "2026-09-22T10:46:09.230Z"
+    },
+    {
+      "id": "ab0cd217-1c11-400c-967c-c579b7808715",
+      "title": "Leyla ile Mecnun",
+      "type": "series",
+      "status": "completed",
+      "creator": "Onur Ünlü",
+      "year": 2011,
+      "rating": 5,
+      "createdAt": "2026-09-24T19:09:13.846Z",
+      "updatedAt": "2026-09-26T19:09:13.846Z"
+    },
+    {
+      "id": "a8939224-07e5-4350-8e9d-1e4bd84826ec",
+      "title": "Kürk Mantolu Madonna",
+      "type": "book",
+      "status": "completed",
+      "creator": "Sabahattin Ali",
+      "year": 1943,
+      "rating": 5,
+      "createdAt": "2026-09-27T03:32:18.461Z",
+      "updatedAt": "2026-09-27T03:32:18.461Z"
+    },
+    {
+      "id": "8750b71f-fdd9-459d-90ad-46f31072eec1",
+      "title": "Tutunamayanlar",
+      "type": "book",
+      "status": "in_progress",
+      "creator": "Oğuz Atay",
+      "year": 1972,
+      "note": "Sayfa 214. Yavaş ama keyifli.",
+      "createdAt": "2026-09-29T08:55:23.076Z",
+      "updatedAt": "2026-09-29T08:55:23.076Z"
+    },
+    {
+      "id": "b0c5a106-3fa8-472f-bb9e-6be3d6ab5c9f",
+      "title": "Suç ve Ceza",
+      "type": "book",
+      "status": "completed",
+      "creator": "Fyodor Dostoyevski",
+      "year": 1866,
+      "rating": 4,
+      "createdAt": "2026-10-01T17:18:27.692Z",
+      "updatedAt": "2026-10-01T17:18:27.692Z"
+    },
+    {
+      "id": "71e2ea24-8643-4e4b-8561-665761478c25",
+      "title": "İnce Memed",
+      "type": "book",
+      "status": "planned",
+      "creator": "Yaşar Kemal",
+      "year": 1955,
+      "createdAt": "2026-10-04T01:41:32.307Z",
+      "updatedAt": "2026-10-06T01:41:32.307Z"
+    },
+    {
+      "id": "6a00c08b-f46a-4580-a061-d14d980b4474",
+      "title": "Saatleri Ayarlama Enstitüsü",
+      "type": "book",
+      "status": "completed",
+      "creator": "Ahmet Hamdi Tanpınar",
+      "year": 1961,
+      "rating": 4,
+      "createdAt": "2026-10-06T07:04:36.923Z",
+      "updatedAt": "2026-10-06T07:04:36.923Z"
+    },
+    {
+      "id": "909dca88-12cd-41f9-bd7e-a27e92921d0e",
+      "title": "1984",
+      "type": "book",
+      "status": "completed",
+      "creator": "George Orwell",
+      "year": 1949,
+      "rating": 5,
+      "createdAt": "2026-10-08T15:27:41.538Z",
+      "updatedAt": "2026-10-08T15:27:41.538Z"
+    },
+    {
+      "id": "7befe01d-e86f-4e37-865c-914ff603e8cf",
+      "title": "Sapiens: Hayvanlardan Tanrılara",
+      "type": "book",
+      "status": "in_progress",
+      "creator": "Yuval Noah Harari",
+      "year": 2011,
+      "rating": 3,
+      "createdAt": "2026-10-10T23:50:46.153Z",
+      "updatedAt": "2026-10-10T23:50:46.153Z"
+    },
+    {
+      "id": "45e3a969-c34b-4317-b97d-7eef06615b8e",
+      "title": "Benim Adım Kırmızı",
+      "type": "book",
+      "status": "planned",
+      "creator": "Orhan Pamuk",
+      "createdAt": "2026-10-13T05:13:50.769Z",
+      "updatedAt": "2026-10-15T05:13:50.769Z"
+    },
+    {
+      "id": "cc541109-cf12-45ef-aa6d-e183f64efca5",
+      "title": "Hayatın Anlamı Üzerine Uzun Bir Deneme: Sonsuz Sorular, Sınırlı Cevaplar ve Arada Kalan Her Şey",
+      "type": "book",
+      "status": "planned",
+      "note": "Bu not, kart ve tablo görünümünde uzun metinlerin nasıl kırpıldığını test etmek için yazıldı. Kart görünümünde üç satırdan sonra kesilmeli, tabloda ise tek satırda üç nokta ile bitmeli.",
+      "createdAt": "2026-10-15T13:36:55.384Z",
+      "updatedAt": "2026-10-15T13:36:55.384Z"
+    }
+  ]
+}

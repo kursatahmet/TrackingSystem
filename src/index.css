@@ -1,111 +1,2017 @@
+/*
+========================================================================
+   İzleOku stilleri
+   Görsel temel: Spark Admin (ThemeWagon) – https://themewagon.com/themes/spark/
+   Spark'ın main.css dosyasından yalnızca kullanılan bölümler uyarlanmıştır
+   (değişkenler, yan menü, üst bar, kart, tablo, form, buton, 404, alt bilgi).
+========================================================================
+*/
+
+/* ---------------------------------------------------------------------
+   1. Tasarım değişkenleri (Spark)
+--------------------------------------------------------------------- */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bs-body-bg: #f4f6f5;
+  --bs-body-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --brand-forest-dark: #051c12;
+  --brand-forest-medium: #072f1f;
+  --brand-forest-light: #1a3e30;
+  --brand-lime: #b4f105;
+  --brand-lime-hover: #c1f824;
+  --brand-lime-dark: #4d7c0f;
+  --brand-lime-translucent: rgba(180, 241, 5, 0.15);
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --text-main: #0b130f;
+  --text-muted-green: #5f7168;
+  --text-sidebar-muted: #879a91;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --card-background: #ffffff;
+  --surface-subtle: #f8faf9;
+  --border-light: #e9efef;
+  --border-control: rgba(11, 19, 15, 0.12);
+  --border-dark-green: rgba(255, 255, 255, 0.1);
+
+  --sys-green: #22c55e;
+  --sys-red: #ef4444;
+  --sys-red-bg: #fee2e2;
+  --star-color: #f59e0b;
+
+  /* Durum renkleri: planned = gri, in_progress = sarı, completed = yeşil */
+  --status-planned-bg: #eef1f0;
+  --status-planned-text: #4b5563;
+  --status-planned-dot: #9ca3af;
+  --status-progress-bg: #fef6c3;
+  --status-progress-text: #854d0e;
+  --status-progress-dot: #eab308;
+  --status-completed-bg: #dcfce7;
+  --status-completed-text: #15803d;
+  --status-completed-dot: #22c55e;
+
+  --sidebar-width: 280px;
+  --page-gutter-x: 2.5rem;
+  --page-gutter-y: 2rem;
+
+  --radius-xxl: 24px;
+  --radius-xl: 18px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+
+  --shadow-sm: 0 2px 8px rgba(11, 19, 15, 0.03);
+  --shadow-md: 0 10px 30px rgba(11, 19, 15, 0.04);
+  --shadow-lg: 0 20px 50px rgba(11, 19, 15, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+/* ---------------------------------------------------------------------
+   2. Temel
+--------------------------------------------------------------------- */
 body {
-  margin: 0;
+  background-color: var(--bs-body-bg);
+  color: var(--text-main);
+  font-family: var(--bs-body-font-family);
+  font-size: 0.925rem;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+body.modal-open {
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+a {
+  color: var(--brand-forest-medium);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--brand-lime-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-forest-medium);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.text-muted-green {
+  color: var(--text-muted-green) !important;
+}
+
+.text-lime {
+  color: var(--brand-lime) !important;
+}
+
+.bg-forest-light {
+  background-color: var(--brand-forest-dark) !important;
+}
+
+/* ---------------------------------------------------------------------
+   3. Logo
+--------------------------------------------------------------------- */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.brand-logo-md {
+  font-size: 1.35rem;
+}
+
+.brand-logo-sm {
+  font-size: 1.1rem;
+  gap: 0.5rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background-color: var(--brand-lime);
+  color: var(--brand-forest-dark);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo-sm .brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+}
+
+.brand-mark svg {
+  width: 62%;
+  height: 62%;
+}
+
+.brand-mark-play {
+  fill: var(--brand-lime);
+}
+
+.brand-text {
+  color: var(--text-main);
+}
+
+.brand-text-accent {
+  color: var(--brand-lime-dark);
+}
+
+/* ---------------------------------------------------------------------
+   4. Yan menü (Spark .sidebar-wrapper)
+--------------------------------------------------------------------- */
+.sidebar-wrapper {
+  width: var(--sidebar-width);
+  background-color: var(--brand-forest-dark);
+  height: 100vh;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  padding: 2rem 1.5rem 1.5rem;
+  border-right: 1px solid var(--border-dark-green);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+
+.sidebar-brand .brand-text {
+  color: #ffffff;
 }
-p {
+
+.sidebar-brand .brand-text-accent {
+  color: var(--brand-lime);
+}
+
+.sidebar-brand:hover .brand-mark {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.sidebar-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-dark-green);
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Aktif bağlantının soldaki çizgisinin kırpılmaması için yatay boşluk menü kabına taşındı. */
+.sidebar-nav {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin: 0 -1.5rem;
+  padding: 0 1.5rem;
+}
+
+.sidebar-menu-section {
+  margin-bottom: 1.75rem;
+}
+
+.sidebar-menu-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-sidebar-muted);
+  padding-left: 0.75rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.75;
+}
+
+.sidebar-menu-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.sidebar-menu-item {
+  margin-bottom: 0.35rem;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.sidebar-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.95rem;
+  color: var(--text-sidebar-muted);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  position: relative;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.sidebar-menu-link i {
+  font-size: 1.15rem;
+}
+
+.sidebar-menu-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar-menu-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+  font-weight: 600;
+}
+
+.sidebar-menu-link.active::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background-color: var(--brand-lime);
+  border-radius: 0 4px 4px 0;
+}
+
+.sidebar-menu-link.active i {
+  color: var(--brand-lime);
+}
+
+.sidebar-menu-badge {
+  margin-left: auto;
+  min-width: 1.75rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 50rem;
+}
+
+.sidebar-menu-link.active .sidebar-menu-badge {
+  background-color: var(--brand-lime);
+  color: var(--brand-forest-dark);
+}
+
+.sidebar-info {
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 0.85rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-dark-green);
+  color: #ffffff;
+}
+
+.sidebar-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg);
+  background-color: var(--brand-lime-translucent);
+  color: var(--brand-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-info-title {
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.sidebar-info-text {
+  font-size: 0.75rem;
+  color: var(--text-sidebar-muted);
+  line-height: 1.4;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 28, 18, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1025;
+}
+
+/* Daraltılmış yan menü (yalnızca geniş ekranlarda) */
+@media (min-width: 1200px) {
+  .app-shell.sidebar-minimized {
+    --sidebar-width: 84px;
+  }
+
+  .sidebar-minimized .sidebar-wrapper {
+    padding: 2rem 0.75rem 1.5rem;
+  }
+
+  .sidebar-minimized .brand-text,
+  .sidebar-minimized .sidebar-menu-title,
+  .sidebar-minimized .sidebar-menu-link span,
+  .sidebar-minimized .sidebar-info-body {
+    display: none;
+  }
+
+  .sidebar-minimized .sidebar-top {
+    justify-content: center;
+  }
+
+  .sidebar-minimized .sidebar-brand {
+    padding-left: 0;
+  }
+
+  .sidebar-minimized .sidebar-nav {
+    margin: 0 -0.75rem;
+    padding: 0 0.75rem;
+  }
+
+  .sidebar-minimized .sidebar-menu-section {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-minimized .sidebar-menu-link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .sidebar-minimized .sidebar-menu-link i {
+    font-size: 1.3rem;
+  }
+
+  .sidebar-minimized .sidebar-menu-link.active::before {
+    left: -0.75rem;
+  }
+
+  .sidebar-minimized .sidebar-info {
+    justify-content: center;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   5. Ana alan ve üst bar (Spark .main-wrapper, .navbar-custom)
+--------------------------------------------------------------------- */
+.main-wrapper {
+  margin-left: var(--sidebar-width);
+  padding: var(--page-gutter-y) var(--page-gutter-x);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+.navbar-custom {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(244, 246, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin: calc(var(--page-gutter-y) * -1) calc(var(--page-gutter-x) * -1) 2rem;
+  padding: 1.25rem var(--page-gutter-x);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-left,
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-brand-mobile {
+  display: flex;
+  align-items: center;
+}
+
+.btn-quick-action {
+  background-color: var(--brand-forest-medium);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-lg);
+  height: 42px;
+  padding: 0 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.btn-quick-action:hover {
+  background-color: var(--brand-forest-dark);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(180, 241, 5, 0.25);
+}
+
+.btn-quick-action i {
+  transition: transform 0.25s ease;
+}
+
+.btn-quick-action:hover i {
+  transform: rotate(90deg);
+}
+
+.sidebar-toggle-btn,
+.btn-desktop-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-lg);
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.25s ease;
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.sidebar-toggle-btn:hover,
+.btn-desktop-toggle:hover {
+  background-color: var(--border-light);
+  color: var(--brand-forest-medium);
+}
+
+/* ---------------------------------------------------------------------
+   6. Sayfa başlığı (Spark .page-header)
+--------------------------------------------------------------------- */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted-green);
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------
+   7. Kartlar ve dashboard (Spark .card, .stat-*, .alert-green-card)
+--------------------------------------------------------------------- */
+.card {
+  background-color: var(--card-background);
+  border: none;
+  border-radius: var(--radius-xxl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.card-header-link {
+  font-size: 0.825rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.card-stat {
+  height: 100%;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted-green);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.85rem;
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-lg);
+  background-color: var(--bs-body-bg);
+  color: var(--brand-forest-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.stat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.stat-chip {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 50rem;
+}
+
+.stat-link {
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-forest-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-link i {
+  transition: transform 0.25s ease;
+}
+
+.stat-card-type {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card-type:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card-type:hover .stat-link {
+  color: var(--brand-forest-dark);
+}
+
+.stat-card-type:hover .stat-link i {
+  transform: translateX(3px);
+}
+
+/* Spark'ın koyu yeşil "alert" kartı: toplam kayıt */
+.stat-card-total {
+  background-color: var(--brand-forest-medium);
+  color: #ffffff;
+}
+
+.stat-card-total .stat-label {
+  color: var(--text-sidebar-muted);
+}
+
+.stat-card-total .stat-value {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+
+.stat-total-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-total-meta strong {
+  color: var(--brand-lime);
+}
+
+.stat-total-icon {
+  position: absolute;
+  right: -10px;
+  bottom: -18px;
+  font-size: 6.5rem;
+  color: var(--brand-lime);
+  opacity: 0.12;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+/* Durum özeti */
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.progress-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+}
+
+.progress-value {
+  color: var(--text-muted-green);
+  font-size: 0.8rem;
+}
+
+.summary-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 50rem;
+  background-color: var(--bs-body-bg);
+  overflow: hidden;
+  gap: 2px;
+}
+
+.summary-bar-segment {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.summary-bar-segment.status-planned {
+  background-color: var(--status-planned-dot);
+}
+
+.summary-bar-segment.status-in_progress {
+  background-color: var(--status-progress-dot);
+}
+
+.summary-bar-segment.status-completed {
+  background-color: var(--status-completed-dot);
+}
+
+.summary-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted-green);
+}
+
+.summary-legend strong {
+  color: var(--text-main);
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50rem;
+  margin-right: 0.4rem;
+  vertical-align: 1px;
+}
+
+.legend-dot.status-planned {
+  background-color: var(--status-planned-dot);
+}
+
+.legend-dot.status-in_progress {
+  background-color: var(--status-progress-dot);
+}
+
+.legend-dot.status-completed {
+  background-color: var(--status-completed-dot);
+}
+
+/* Son eklenenler (Spark .transaction-list) */
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  background-color: var(--bs-body-bg);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.transaction-item:hover {
+  background-color: rgba(5, 28, 18, 0.06);
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-right: 0.85rem;
+}
+
+.transaction-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.transaction-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-date {
+  font-size: 0.75rem;
+  color: var(--text-muted-green);
+  margin-bottom: 0;
+}
+
+.transaction-amount {
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+/* ---------------------------------------------------------------------
+   8. Rozetler
+--------------------------------------------------------------------- */
+.badge-status,
+.badge-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50rem;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.badge-status::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50rem;
+  background-color: currentColor;
+}
+
+.status-planned {
+  background-color: var(--status-planned-bg);
+  color: var(--status-planned-text);
+}
+
+.status-in_progress {
+  background-color: var(--status-progress-bg);
+  color: var(--status-progress-text);
+}
+
+.status-completed {
+  background-color: var(--status-completed-bg);
+  color: var(--status-completed-text);
+}
+
+.badge-status.status-planned::before {
+  background-color: var(--status-planned-dot);
+}
+
+.badge-status.status-in_progress::before {
+  background-color: var(--status-progress-dot);
+}
+
+.badge-status.status-completed::before {
+  background-color: var(--status-completed-dot);
+}
+
+.badge-type {
+  background-color: #ffffff;
+  border: 1px solid var(--border-control);
+  color: var(--brand-forest-medium);
+}
+
+/* Rozet görünümlü durum seçici (tablo) */
+.status-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 50rem;
+  padding: 0.3rem 1.75rem 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m3 6 5 5 5-5'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 10px 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-select:hover {
+  border-color: rgba(11, 19, 15, 0.15);
+}
+
+.status-select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(7, 47, 31, 0.15);
+}
+
+.status-select option {
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+/* Durum buton grubu (kart) */
+.status-toggle {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.status-toggle-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.45rem 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.status-toggle-btn + .status-toggle-btn {
+  border-left: 1px solid var(--border-control);
+}
+
+.status-toggle-btn:hover:not(.active) {
+  background-color: var(--surface-subtle);
+  color: var(--text-main);
+}
+
+.status-toggle-btn.active {
+  font-weight: 700;
+}
+
+.status-toggle-btn.active.status-planned {
+  background-color: var(--status-planned-bg);
+}
+
+.status-toggle-btn.active.status-in_progress {
+  background-color: var(--status-progress-bg);
+}
+
+.status-toggle-btn.active.status-completed {
+  background-color: var(--status-completed-bg);
+}
+
+.status-toggle-btn span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Yıldızlar */
+.rating-stars {
+  display: inline-flex;
+  gap: 0.1rem;
+  color: var(--star-color);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.rating-stars .bi-star {
+  color: #d1d5db;
+}
+
+/* ---------------------------------------------------------------------
+   9. Tablo ve liste araç çubuğu (Spark .table-card-custom, .table-custom)
+--------------------------------------------------------------------- */
+.table-card-custom {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(11, 19, 15, 0.06);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.table-header-control {
+  background-color: #ffffff;
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(11, 19, 15, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.list-toolbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex: 1 1 auto;
+}
+
+.table-search-box {
+  position: relative;
+  flex: 1 1 220px;
+  max-width: 300px;
+}
+
+.table-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0.5rem 1rem 0.5rem 2.25rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-control);
+  background-color: #fdfdfd;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.table-search-input:focus {
+  outline: none;
+  border-color: var(--brand-forest-medium);
+  box-shadow: 0 0 0 3px rgba(7, 47, 31, 0.08);
+}
+
+.table-search-icon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted-green);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.toolbar-select {
+  width: auto;
+  height: 40px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: 0.825rem;
+}
+
+.btn-table-action {
+  background-color: #ffffff;
+  border: 1px solid var(--border-control);
+  color: var(--brand-forest-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  height: 42px;
+  padding: 0 1rem;
+  border-radius: var(--radius-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-table-action:hover {
+  background-color: var(--surface-subtle);
+  border-color: var(--brand-forest-medium);
+}
+
+/* Segment kontrol: tür filtresi ve görünüm seçimi */
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  background-color: #eef2f0;
+  border-radius: var(--radius-lg);
+}
+
+.segmented-item {
+  border: none;
+  background: transparent;
+  color: var(--text-muted-green);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  min-height: 32px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.segmented-item:hover {
+  color: var(--text-main);
+}
+
+.segmented-item.active {
+  background-color: #ffffff;
+  color: var(--brand-forest-medium);
+  box-shadow: 0 1px 4px rgba(11, 19, 15, 0.08);
+}
+
+.segmented-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background-color: rgba(11, 19, 15, 0.06);
+  padding: 0.05rem 0.45rem;
+  border-radius: 50rem;
+}
+
+.segmented-item.active .segmented-count {
+  background-color: var(--brand-lime);
+  color: var(--brand-forest-dark);
+}
+
+.table-custom {
+  width: 100%;
+  margin-bottom: 0;
+  vertical-align: middle;
+  border-collapse: collapse;
+}
+
+.table-custom th,
+.table-custom td {
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid rgba(11, 19, 15, 0.05);
+  white-space: nowrap;
+}
+
+.table-custom th {
+  background-color: var(--surface-subtle);
+  color: var(--text-muted-green);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(11, 19, 15, 0.08);
+}
+
+.table-custom tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.table-custom tbody tr:hover {
+  background-color: rgba(180, 241, 5, 0.05);
+}
+
+.table-custom tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-custom .cell-title {
+  white-space: normal;
+  min-width: 220px;
+  max-width: 380px;
+}
+
+.table-item-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.table-user-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted-green);
+  margin-top: 0.1rem;
+}
+
+.table-note {
+  font-size: 0.75rem;
+  color: var(--text-muted-green);
+  margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 340px;
+}
+
+.table-btn-action {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(11, 19, 15, 0.1);
+  background-color: #ffffff;
+  color: var(--brand-forest-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.table-btn-action:hover {
+  background-color: var(--brand-forest-medium);
+  color: #ffffff;
+  border-color: var(--brand-forest-medium);
+}
+
+.table-btn-action.delete:hover {
+  background-color: var(--sys-red);
+  border-color: var(--sys-red);
+}
+
+.table-footer-control {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(11, 19, 15, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-pagination-info {
+  font-size: 0.825rem;
+  color: var(--text-muted-green);
+}
+
+/* Kart görünümü */
+.item-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--surface-subtle);
+}
+
+.item-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.item-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.item-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.item-card-title {
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.item-card-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted-green);
+  margin: 0;
+}
+
+.item-card-note {
+  font-size: 0.8rem;
+  color: var(--text-muted-green);
+  background-color: var(--surface-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.65rem;
+  margin: 0.15rem 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.item-card-status {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.item-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.item-card-date {
+  font-size: 0.75rem;
+  color: var(--text-muted-green);
+}
+
+/* Boş durum */
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.empty-state.compact {
+  padding: 1.5rem 0.5rem;
+}
+
+.empty-state-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background-color: var(--brand-lime-translucent);
+  color: var(--brand-forest-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+}
+
+.empty-state-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.empty-state-text {
+  font-size: 0.875rem;
+  color: var(--text-muted-green);
+  margin-bottom: 1.25rem;
+}
+
+/* ---------------------------------------------------------------------
+   10. Form elemanları (Spark .form-*-custom)
+--------------------------------------------------------------------- */
+fieldset {
+  min-width: 0;
+}
+
+.form-label-custom {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  padding: 0;
+  float: none;
+  width: auto;
+}
+
+.required-mark {
+  color: var(--sys-red);
+}
+
+.optional-mark {
+  font-weight: 500;
+  color: var(--text-muted-green);
+  font-size: 0.775rem;
+}
+
+.form-control-custom,
+.form-select-custom {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: #ffffff;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-select-custom {
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23072F1F' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 12px 10px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-control-custom:focus,
+.form-select-custom:focus {
+  border-color: var(--brand-forest-medium);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(7, 47, 31, 0.08);
+}
+
+.form-control-custom::placeholder {
+  color: var(--text-muted-green);
+  opacity: 0.6;
+}
+
+textarea.form-control-custom {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-control-custom.is-invalid-custom {
+  border-color: var(--sys-red);
+}
+
+.form-control-custom.is-invalid-custom:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.form-feedback-custom {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+}
+
+.form-feedback-custom.invalid-custom {
+  color: #dc2626;
+}
+
+.form-hint {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted-green);
+}
+
+/* Tür seçimi (radyo kartları) */
+.type-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.type-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.8rem 0.5rem;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-lg);
+  background-color: #ffffff;
+  color: var(--text-muted-green);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.type-option label i {
+  font-size: 1.35rem;
+}
+
+.type-option label:hover {
+  border-color: var(--brand-forest-medium);
+  color: var(--text-main);
+}
+
+.type-option .btn-check:checked + label {
+  border-color: var(--brand-forest-medium);
+  background-color: rgba(7, 47, 31, 0.04);
+  color: var(--brand-forest-medium);
+  box-shadow: 0 0 0 3px var(--brand-lime-translucent);
+}
+
+.type-option .btn-check:focus-visible + label {
+  outline: 2px solid var(--brand-forest-medium);
+  outline-offset: 2px;
+}
+
+.type-options.is-invalid label {
+  border-color: var(--sys-red);
+}
+
+/* Puan seçici */
+.rating-input {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+}
+
+.rating-input-star {
+  border: none;
+  background: none;
+  padding: 0.15rem;
+  font-size: 1.45rem;
+  line-height: 1;
+  color: #d1d5db;
+  border-radius: var(--radius-sm);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.rating-input-star.filled {
+  color: var(--star-color);
+}
+
+.rating-input-star:hover {
+  transform: scale(1.12);
+}
+
+.rating-input-text {
+  font-size: 0.8rem;
+  color: var(--text-muted-green);
+  margin-left: 0.6rem;
+}
+
+.btn-link-custom {
+  border: none;
+  background: none;
+  padding: 0 0.25rem;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-forest-medium);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------
+   11. Butonlar ve uyarılar (Spark .btn-custom, .alert-custom)
+--------------------------------------------------------------------- */
+.btn-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-custom:active {
+  transform: scale(0.97);
+}
+
+.btn-custom-primary {
+  background-color: var(--brand-forest-medium);
+  border-color: var(--brand-forest-medium);
+  color: #ffffff;
+}
+
+.btn-custom-primary:hover {
+  background-color: var(--brand-forest-dark);
+  border-color: var(--brand-forest-dark);
+  color: #ffffff;
+}
+
+.btn-custom-light {
+  background-color: var(--surface-subtle);
+  border-color: rgba(11, 19, 15, 0.1);
+  color: var(--brand-forest-dark);
+}
+
+.btn-custom-light:hover {
+  background-color: #eef2f0;
+  color: var(--brand-forest-dark);
+}
+
+.btn-custom-danger {
+  background-color: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+}
+
+.btn-custom-danger:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
+.alert-custom {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.alert-custom-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.alert-custom-content {
+  flex-grow: 1;
+}
+
+.alert-custom-close {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  opacity: 0.6;
+  display: inline-flex;
+}
+
+.alert-custom-close:hover {
+  opacity: 1;
+  background-color: rgba(11, 19, 15, 0.05);
+}
+
+.alert-custom-success {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.alert-custom-danger {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.alert-custom-info {
+  background-color: #f0f9ff;
+  border-color: #bae6fd;
+  color: #075985;
+}
+
+/* ---------------------------------------------------------------------
+   12. Modal ve bildirim
+--------------------------------------------------------------------- */
+.modal-content-custom {
+  border: none;
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content-custom .modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-content-custom .modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-content-custom .modal-body {
+  padding: 1.5rem;
+}
+
+.modal-content-custom .modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-light);
+  gap: 0.5rem;
+}
+
+.modal-content-custom .modal-footer > * {
+  margin: 0;
+}
+
+/* Form, modal-body ile modal-footer arasına girdiği için kaydırma düzenini korur. */
+.modal-content-custom > form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.modal-backdrop.show {
+  opacity: 0.45;
+  background-color: var(--brand-forest-dark);
+}
+
+.confirm-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.confirm-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.confirm-icon-danger {
+  background-color: var(--sys-red-bg);
+  color: #dc2626;
+}
+
+.confirm-icon-primary {
+  background-color: var(--brand-lime-translucent);
+  color: var(--brand-forest-medium);
+}
+
+.confirm-message {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  padding-top: 0.2rem;
+  overflow-wrap: anywhere;
+}
+
+.toast-stack {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1090;
+  width: min(380px, calc(100vw - 2rem));
+}
+
+.toast-custom {
+  margin: 0;
+  box-shadow: var(--shadow-lg);
+  animation: toastIn 0.25s ease;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------------
+   13. 404 sayfası (Spark .error-card-custom)
+--------------------------------------------------------------------- */
+.error-card-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  min-height: 440px;
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(11, 19, 15, 0.06);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.error-title-huge {
+  font-size: clamp(4.5rem, 14vw, 7.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--brand-forest-dark);
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.error-title-huge i {
+  font-size: 0.75em;
+  color: var(--brand-lime-dark);
+}
+
+.error-subtitle {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.error-desc {
+  max-width: 460px;
+  font-size: 0.95rem;
+  color: var(--text-muted-green);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------------------
+   14. Alt bilgi (Spark .footer-custom)
+--------------------------------------------------------------------- */
+.footer-custom {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(11, 19, 15, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted-green);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.footer-separator {
+  color: var(--border-control);
+  user-select: none;
+}
+
+.footer-copy a {
+  font-weight: 700;
+}
+
+.footer-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ---------------------------------------------------------------------
+   15. Duyarlı düzen
+--------------------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+  :root {
+    --page-gutter-x: 1.5rem;
+    --page-gutter-y: 1.5rem;
+  }
+
+  .sidebar-wrapper {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-wrapper.show {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle-btn {
+    display: flex;
+  }
+
+  .navbar-custom {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .list-toolbar-controls {
+    justify-content: stretch;
+  }
+
+  .table-search-box {
+    max-width: none;
+    flex-basis: 100%;
+  }
+
+  .toolbar-select {
+    flex: 1 1 140px;
+  }
+
+  .list-toolbar .segmented {
+    width: 100%;
+  }
+
+  .list-toolbar nav.segmented .segmented-item {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .footer-custom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --page-gutter-x: 1rem;
+    --page-gutter-y: 1rem;
+  }
+
+  .navbar-custom {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .navbar-left,
+  .navbar-actions {
+    gap: 0.5rem;
+  }
+
+  .btn-quick-action {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .btn-table-action {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .page-title {
+    font-size: 1.45rem;
+  }
+
+  .page-header-actions,
+  .page-header-actions .btn-custom {
+    width: 100%;
+  }
+
+  .card {
+    padding: 1.25rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .table-header-control {
+    padding: 1rem;
+  }
+
+  .item-card-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .modal-content-custom .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-content-custom .modal-footer .btn-custom {
+    flex: 1 1 0;
+  }
+
+  .toast-stack {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
