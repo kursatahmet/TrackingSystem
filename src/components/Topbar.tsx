@@ -1,5 +1,5 @@
 import { useRef, type ChangeEvent } from 'react';
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 import Logo from './Logo';
 
 interface TopbarProps {
@@ -54,7 +54,7 @@ export default function Topbar({
         >
           <i className="bi bi-list" aria-hidden="true" />
         </button>
-        <a href={routeToHash({ page: 'dashboard' })} className="navbar-brand-mobile d-xl-none">
+        <a href={routeToPath({ page: 'dashboard' })} className="navbar-brand-mobile d-xl-none">
           <Logo size="sm" />
         </a>
         <button type="button" className="btn-quick-action" onClick={onAdd} aria-label="Yeni kayıt ekle">

@@ -1,7 +1,7 @@
 import type { SortOption, StatusFilter, ViewMode } from '../interfaces/filters';
 import type { TypeFilter } from '../interfaces/navigation';
 import { ITEM_STATUSES, ITEM_TYPES, SORT_LABELS, TYPE_LABELS, getStatusLabel } from '../utils/labels';
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 import { isItemStatus } from '../utils/validation';
 
 interface ItemFiltersProps {
@@ -42,7 +42,7 @@ export default function ItemFilters({
         {TYPE_FILTERS.map((filter) => (
           <a
             key={filter}
-            href={routeToHash({ page: 'list', type: filter })}
+            href={routeToPath({ page: 'list', type: filter })}
             className={`segmented-item${filter === type ? ' active' : ''}`}
             aria-current={filter === type ? 'page' : undefined}
           >

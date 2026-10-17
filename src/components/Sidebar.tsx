@@ -1,6 +1,6 @@
 import type { Route, TypeFilter } from '../interfaces/navigation';
 import { TYPE_ICONS } from '../utils/labels';
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 import Logo from './Logo';
 
 interface SidebarProps {
@@ -35,12 +35,12 @@ const MENU_SECTIONS: { title: string; entries: MenuEntry[] }[] = [
 ];
 
 export default function Sidebar({ route, counts, isOpen, onClose }: SidebarProps) {
-  const activeHash = routeToHash(route);
+  const activePath = routeToPath(route);
 
   return (
     <aside id="app-sidebar" className={`sidebar-wrapper${isOpen ? ' show' : ''}`} aria-label="Yan menü">
       <div className="sidebar-top">
-        <a href={routeToHash({ page: 'dashboard' })} className="sidebar-brand" onClick={onClose}>
+        <a href={routeToPath({ page: 'dashboard' })} className="sidebar-brand" onClick={onClose}>
           <Logo />
         </a>
         <button type="button" className="sidebar-close-btn d-xl-none" aria-label="Menüyü kapat" onClick={onClose}>
@@ -54,12 +54,12 @@ export default function Sidebar({ route, counts, isOpen, onClose }: SidebarProps
             <div className="sidebar-menu-title">{section.title}</div>
             <ul className="sidebar-menu-list">
               {section.entries.map((entry) => {
-                const hash = routeToHash(entry.route);
-                const isActive = hash === activeHash;
+                const path = routeToPath(entry.route);
+                const isActive = path === activePath;
                 return (
                   <li className="sidebar-menu-item" key={entry.label}>
                     <a
-                      href={hash}
+                      href={path}
                       className={`sidebar-menu-link${isActive ? ' active' : ''}`}
                       aria-current={isActive ? 'page' : undefined}
                       title={entry.label}

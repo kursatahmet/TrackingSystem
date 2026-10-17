@@ -298,7 +298,7 @@ export default function ItemForm({ item, defaultType, onSubmit, onCancel }: Item
           </button>
           <button type="submit" className="btn-custom btn-custom-primary">
             <i className={`bi ${isEdit ? 'bi-check2' : 'bi-plus-lg'}`} aria-hidden="true" />
-            {isEdit ? 'Değişiklikleri Kaydet' : 'Ekle'}
+            {isEdit ? 'Kaydet' : 'Ekle'}
           </button>
         </div>
       </form>

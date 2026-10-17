@@ -1,6 +1,6 @@
 import type { CollectionStats } from '../interfaces/stats';
 import { ITEM_TYPES, TYPE_ICONS, TYPE_PLURAL_LABELS, getStatusLabel } from '../utils/labels';
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 
 interface StatsCardsProps {
   stats: CollectionStats;
@@ -46,7 +46,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
                   {getStatusLabel('in_progress')}: {typeStats.in_progress}
                 </span>
               </div>
-              <a href={routeToHash({ page: 'list', type })} className="stat-link stretched-link">
+              <a href={routeToPath({ page: 'list', type })} className="stat-link stretched-link">
                 {TYPE_PLURAL_LABELS[type]} listesine git <i className="bi bi-arrow-right" aria-hidden="true" />
               </a>
             </div>

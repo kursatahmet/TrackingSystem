@@ -1,4 +1,4 @@
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 
 export default function NotFound() {
   return (
@@ -9,10 +9,10 @@ export default function NotFound() {
       <h1 className="error-subtitle">Sayfa bulunamadı</h1>
       <p className="error-desc">Aradığın sayfa taşınmış ya da hiç var olmamış olabilir. Listene dönerek devam edebilirsin.</p>
       <div className="error-actions-group">
-        <a href={routeToHash({ page: 'dashboard' })} className="btn-custom btn-custom-primary">
+        <a href={routeToPath({ page: 'dashboard' })} className="btn-custom btn-custom-primary">
           <i className="bi bi-grid-fill" aria-hidden="true" /> Dashboard'a dön
         </a>
-        <a href={routeToHash({ page: 'list', type: 'all' })} className="btn-custom btn-custom-light">
+        <a href={routeToPath({ page: 'list', type: 'all' })} className="btn-custom btn-custom-light">
           Tüm Liste
         </a>
       </div>

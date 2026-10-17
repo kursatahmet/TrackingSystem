@@ -1924,9 +1924,17 @@ textarea.form-control-custom {
     width: 100%;
   }
 
+  /* Tür filtresi: dört seçenek tek satırda eşit genişlikte */
+  .list-toolbar nav.segmented {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .list-toolbar nav.segmented .segmented-item {
-    flex: 1 1 auto;
     justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.25rem;
+    min-width: 0;
   }
 
   .footer-custom {

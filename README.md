@@ -6,9 +6,7 @@ Bu proje bir eğitim ödevi olarak geliştirilmiştir. Amaç; React ve TypeScrip
 
 ## Ekran görüntüsü
 
-> _Ekran görüntüsü buraya eklenecek._
-
-Örnek: ![İzleOku Gösterge Paneli](main-page.png)
+![İzleOku Gösterge Paneli](main-page.png)
 
 ## Özellikler
 
@@ -31,7 +29,7 @@ Bu proje bir eğitim ödevi olarak geliştirilmiştir. Amaç; React ve TypeScrip
 - [Bootstrap 5](https://getbootstrap.com/) ve [Bootstrap Icons](https://icons.getbootstrap.com/)
 - Tarayıcının `localStorage` API'si (veri saklama)
 
-Ek bir yönlendirme (router) kütüphanesi kullanılmamıştır. Sayfa geçişleri React state'i ile yapılır; bu state URL hash'i (`#/filmler` gibi) ile senkron tutulur. Böylece sayfa yenilendiğinde ve tarayıcının geri/ileri tuşları kullanıldığında doğru sayfa açılır.
+Ek bir yönlendirme (router) kütüphanesi kullanılmamıştır. Sayfa geçişleri React state'i ile yapılır; bu state tarayıcının History API'si ile URL yoluna (`/filmler` gibi) senkron tutulur. Böylece sayfa yenilendiğinde ve tarayıcının geri/ileri tuşları kullanıldığında doğru sayfa açılır.
 
 ## Klasör yapısı
 

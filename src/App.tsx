@@ -16,7 +16,7 @@ import * as backupService from './services/backupService';
 import * as itemService from './services/itemService';
 import { getErrorMessage } from './utils/format';
 import { getStatusLabel } from './utils/labels';
-import { getRouteTitle, hashToRoute } from './utils/navigation';
+import { NAVIGATE_EVENT, getRouteTitle, navigateToPath, pathToRoute } from './utils/navigation';
 
 type FormState = { mode: 'add'; defaultType?: ItemType } | { mode: 'edit'; item: TrackedItem } | null;
 
@@ -24,7 +24,7 @@ const TOAST_DURATION_MS = 3500;
 
 export default function App() {
   const [items, setItems] = useState<TrackedItem[]>(() => itemService.getAll());
-  const [route, setRoute] = useState<Route>(() => hashToRoute(window.location.hash));
+  const [route, setRoute] = useState<Route>(() => pathToRoute(window.location.pathname));
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isSidebarMinimized, setSidebarMinimized] = useState(false);
   const [formState, setFormState] = useState<FormState>(null);
@@ -32,15 +32,35 @@ export default function App() {
   const [pendingImport, setPendingImport] = useState<ImportResult | null>(null);
   const [toast, setToast] = useState<ToastState | null>(null);
 
-  // Sayfa state'ini URL hash'i ile senkron tutar (geri/ileri tuşları ve yenileme için).
+  // Sayfa state'ini URL yolu ile senkron tutar (geri/ileri tuşları ve yenileme için).
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(hashToRoute(window.location.hash));
+    const handleRouteChange = () => {
+      setRoute(pathToRoute(window.location.pathname));
       setSidebarOpen(false);
       window.scrollTo({ top: 0 });
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    // Uygulama içi <a href="/..."> tıklamalarını sayfayı yeniden yüklemeden işler.
+    // Ctrl/Cmd+tık, orta tık ve yeni sekmede açılan bağlantılara dokunulmaz.
+    const handleLinkClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = (event.target as Element | null)?.closest('a');
+      if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      event.preventDefault();
+      navigateToPath(url.pathname);
+    };
+
+    window.addEventListener('popstate', handleRouteChange);
+    window.addEventListener(NAVIGATE_EVENT, handleRouteChange);
+    document.addEventListener('click', handleLinkClick);
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      window.removeEventListener(NAVIGATE_EVENT, handleRouteChange);
+      document.removeEventListener('click', handleLinkClick);
+    };
   }, []);
 
   useEffect(() => {

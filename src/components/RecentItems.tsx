@@ -1,7 +1,7 @@
 import type { TrackedItem } from '../interfaces/item';
 import { formatDate } from '../utils/format';
 import { TYPE_ICONS, TYPE_LABELS } from '../utils/labels';
-import { routeToHash } from '../utils/navigation';
+import { routeToPath } from '../utils/navigation';
 import EmptyState from './EmptyState';
 import StatusBadge from './StatusBadge';
 
@@ -16,7 +16,7 @@ export default function RecentItems({ items, onAdd }: RecentItemsProps) {
       <div className="card-header">
         <h2 className="card-title">Son Eklenenler</h2>
         {items.length > 0 && (
-          <a href={routeToHash({ page: 'list', type: 'all' })} className="card-header-link">
+          <a href={routeToPath({ page: 'list', type: 'all' })} className="card-header-link">
             Tümünü gör <i className="bi bi-arrow-right" aria-hidden="true" />
           </a>
         )}
